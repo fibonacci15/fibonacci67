@@ -3,226 +3,283 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fibonacci | Master Video Editing</title>
+  <title>Fibonacci - Master Video Editing</title>
   <style>
+    /* Reset and Fonts */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html, body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #000000, #1a002b, #300046);
-      color: white;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
     body {
-      animation: slideDown 1s ease-out both;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0d0d0d, #2c003e);
+      color: white;
+      overflow-x: hidden;
+      animation: fadeIn 1.5s ease-in-out;
     }
 
-    @keyframes slideDown {
-      0% {
-        opacity: 0;
-        transform: translateY(-50px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Floating Balls */
-    .balls-container {
+    /* Header & Logo */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(6px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #fff;
+      gap: 12px;
+    }
+
+    .logo img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      gap: 30px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #00aaff;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #ccc;
+    }
+
+    /* Floating Balls Background */
+    .background-balls {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       z-index: 0;
-      pointer-events: none;
+      overflow: hidden;
     }
 
     .ball {
       position: absolute;
-      width: 40px;
-      height: 40px;
+      width: 20px;
+      height: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(181, 0, 255, 0.4), rgba(255, 0, 255, 0.1));
       animation: floatBall 20s linear infinite;
-      top: 100%;
-      left: calc(100% * var(--i, 0.1));
-      filter: blur(3px);
     }
-
-    .ball:nth-child(1) { --i: 0.1; animation-delay: 0s; }
-    .ball:nth-child(2) { --i: 0.25; animation-delay: 4s; }
-    .ball:nth-child(3) { --i: 0.4; animation-delay: 8s; }
-    .ball:nth-child(4) { --i: 0.6; animation-delay: 2s; }
-    .ball:nth-child(5) { --i: 0.75; animation-delay: 6s; }
-    .ball:nth-child(6) { --i: 0.9; animation-delay: 1s; }
-    .ball:nth-child(7) { --i: 0.15; animation-delay: 5s; }
 
     @keyframes floatBall {
       0% {
-        transform: translateY(0) scale(1);
+        transform: translateY(100vh) scale(1);
+        opacity: 0;
       }
       100% {
-        transform: translateY(-120vh) scale(1.2);
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 1;
       }
     }
 
-    /* Header */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-      color: #ffffff;
-    }
-
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #ccc;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #e2b4ff;
-    }
-
-    /* Hero Section */
-    main {
-      text-align: center;
-      padding: 120px 20px 80px;
-      max-width: 800px;
+    /* Content Section */
+    .content {
+      padding: 60px 40px;
+      line-height: 1.8;
+      font-family: 'Segoe UI', cursive;
+      max-width: 1000px;
       margin: 0 auto;
+      z-index: 2;
       position: relative;
-      z-index: 1;
     }
 
-    main h2 {
-      font-size: 48px;
-      background: linear-gradient(to right, #b076ff, #ff77f6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 700;
+    .content p {
       margin-bottom: 20px;
-    }
-
-    main p {
-      font-size: 18px;
-      color: #dcdcdc;
-      margin-bottom: 40px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 28px;
-      background: #7f00ff;
-      color: white;
-      border-radius: 30px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-
-    .btn:hover {
-      background: #9f00ff;
-    }
-
-    /* Scrollable Content */
-    .content-section {
-      max-width: 800px;
-      margin: 100px auto;
-      text-align: center;
-      z-index: 1;
-      position: relative;
-      padding: 0 20px;
-    }
-
-    .content-section h3 {
-      font-size: 32px;
-      margin-bottom: 20px;
-      color: #f2d1ff;
-    }
-
-    .content-section p {
-      font-size: 17px;
-      color: #cfcfcf;
-      line-height: 1.6;
+      font-size: 1.1rem;
+      color: #ddd;
     }
 
     /* Footer */
     footer {
       text-align: center;
-      padding: 40px 20px 20px;
-      font-size: 14px;
-      color: #aaa;
-      z-index: 1;
+      padding: 20px;
+      background: #111;
+      color: #888;
+      font-size: 0.9rem;
+      z-index: 2;
       position: relative;
-    }
-
-    footer span {
-      color: #fff;
-      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <!-- Floating Balls Background -->
-  <div class="balls-container">
-    <div class="ball"></div>
-    <div class="ball"></div>
-    <div class="ball"></div>
-    <div class="ball"></div>
-    <div class="ball"></div>
-    <div class="ball"></div>
-    <div class="ball"></div>
+  <div class="background-balls">
+    <!-- Multiple small balls floating -->
+    <div class="ball" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="ball" style="left: 25%; animation-delay: 2s;"></div>
+    <div class="ball" style="left: 40%; animation-delay: 4s;"></div>
+    <div class="ball" style="left: 55%; animation-delay: 1s;"></div>
+    <div class="ball" style="left: 70%; animation-delay: 3s;"></div>
+    <div class="ball" style="left: 85%; animation-delay: 5s;"></div>
   </div>
 
-  <!-- Header -->
   <header>
-    <h1 class="logo">Fibonacci</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Courses</a>
-      <a href="#">Community</a>
-      <a href="#">Login</a>
+    <div class="logo">
+      <img src="https://i.ibb.co/ks6MWvfz/logo.jpg" alt="Logo">
+      Fibonacci
+    </div>
+    <nav class="navbar">
+      <a href="#about">About</a>
+      <a href="#contacts">Contacts</a>
+      <a href="tool.html">Toolkit</a>
+      <a href="vid.html">Vids</a>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <main>
-    <h2>Master the Art of Video Editing</h2>
-    <p>Fibonacci is a free platform to learn, practice, and grow as a video editor with tutorials, projects, and a creative community.</p>
-    <a href="#" class="btn">Get Started for Free</a>
-  </main>
+ <section class="hero">
+  <div>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
-  <!-- Scrollable Content -->
-  <section class="content-section">
-    <h3>Why Choose Fibonacci?</h3>
-    <p>
-      Whether you're just starting or you're already a creator, Fibonacci helps you take your editing to the next level. 
-      Learn cinematic techniques, smooth transitions, SFX, audio sync, and storytelling – all for free with community support.
-    </p>
-  </section>
+    <style>
+      .gradient-heading {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 3.5em;
+        letter-spacing: 1px;
+        background: linear-gradient(90deg, #1e90ff, #ffffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+        margin: 0;
+      }
 
-  <!-- Footer -->
+      .intro-text {
+        font-size: 1.2em;
+        font-family: 'Arial', sans-serif;
+        color: #e0e0e0;
+        margin-top: 10px;
+      }
+
+      .parallelogram-banner {
+        width: 100%;
+        height: 140px;
+        background-color: #1e90ff1a;
+        transform: skew(-12deg);
+        border-radius: 30px;
+        margin: 40px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+      }
+
+      .banner-content {
+        transform: skew(12deg); /* reverse skew */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+
+      .banner-content img {
+        height: 100px;
+        object-fit: contain;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      }
+    </style>
+
+    <h1 class="gradient-heading">Master Video Editing with Fibonacci</h1>
+    <p class="intro-text">Learn cinematic techniques, smooth transitions, SFX, and more — for free, with the power of community.</p>
+
+    <!-- Image Banner Section -->
+    <div class="parallelogram-banner">
+      <div class="banner-content">
+        <img src="https://i.ibb.co/0VmHKmMP/Gemini-Generated-Image-kd5zttkd5zttkd5z.png" alt="Video Editing Image">
+      </div>
+    </div>
+  </div>
+</section>
+ <section class="content" style="font-family: 'Cursive', 'Comic Sans MS', 'Brush Script MT', sans-serif;">
+  <p>Whether you're just starting or you're already a creator, Fibonacci helps you take your editing to the next level. Learn cinematic techniques, smooth transitions, SFX, audio sync, and storytelling – all for free with community support.</p>
+
+  <p><strong>About Fibonacci</strong><br>
+  Fibonacci is dedicated to educating and empowering users about the art and craft of video editing.</p>
+
+  <p>The website provides comprehensive guides, step-by-step tutorials, and tips for both beginners and experienced editors.</p>
+
+  <p><strong>What Is Video Editing?</strong><br>
+  Video editing is the process of manipulating and arranging video footage to create a finished video project.</p>
+
+  <p><strong>Types of Video Editing</strong><br>
+  Basic Editing: Trimming, splitting, and arranging clips.<br>
+  Advanced Editing: Motion graphics, VFX, color grading.<br>
+  Sound Editing: Syncing audio, noise reduction, voiceovers.</p>
+
+  <p><strong>Software We Cover</strong><br>
+  Adobe Premiere Pro, Final Cut Pro, DaVinci Resolve, CapCut and more.</p>
+
+  <p><strong>Who Can Use Fibonacci?</strong><br>
+  Creators, YouTubers, filmmakers, students—anyone can learn!</p>
+
+  <p><strong>Why Learn Video Editing?</strong><br>
+  Video content is the future. Learn to communicate visually, creatively, and confidently.</p>
+</section>
+
   <footer>
-    <p>© <span>Fibonacci</span> 2025. All rights reserved.</p>
+    © Fibonacci ⓒ All rights reserved
   </footer>
 </body>
 </html>
 
- 
+   
+  
+
+     
+
+    
