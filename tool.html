@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Editing Tools Showcase</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffd1dc, #c1f0f6, #c3f7c7, #ffffff);
+      background-size: 600% 600%;
+      animation: gradientBG 15s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 2.5em;
+      color: #333;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .tool-card {
+      background: #ffffffaa;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .tool-card img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    .tool-card p {
+      margin: 0;
+      font-size: 1em;
+      color: #222;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>🎬 Editing Tools Showcase</h1>
+
+  <div class="grid">
+    <!-- Repeat the following block for 50 tools -->
+    <!-- Placeholder image used here; replace with actual logos -->
+    <div class="tool-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/DaVinci_Resolve_17_logo.svg" alt="DaVinci Resolve">
+      <p>DaVinci Resolve</p>
+    </div>
+    <div class="tool-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Adobe_Premiere_Pro_Logo.svg" alt="Premiere Pro">
+      <p>Premiere Pro</p>
+    </div>
+    <div class="tool-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Final_Cut_Pro_icon.png" alt="Final Cut Pro">
+      <p>Final Cut Pro</p>
+    </div>
+    <div class="tool-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Hitfilm_Express_logo.svg" alt="HitFilm Express">
+      <p>HitFilm Express</p>
+    </div>
+    <div class="tool-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/CapCut_Logo.svg" alt="CapCut">
+      <p>CapCut</p>
+    </div>
+
+    <!-- Add more tools below (just copy/paste and change names/logos) -->
+    <!-- ... (continue till 50) ... -->
+
+    <!-- Filler Tools -->
+    <div class="tool-card"><img src="https://via.placeholder.com/60" alt="Tool"><p>Filmora</p></div>
+    <div class="tool-card"><img src="https://via.placeholder.com/60" alt="Tool"><p>Lightworks</p></div>
+    <div class="tool-card"><img src="https://via.placeholder.com/60" alt="Tool"><p>Blender</p></div>
+    <div class="tool-card"><img src="https://via.placeholder.com/60" alt="Tool"><p>Vegas Pro</p></div>
+    <div class="tool-card"><img src="https://via.placeholder.com/60" alt="Tool"><p>OpenShot</p></div>
+    <div class="tool-card"><img src="https://via.placeholder.com/60" alt="Tool"><p>Kdenlive</p></div>
+    <div class="tool-card"><img src="https://via.placeholder.com/60" alt="Tool"><p>VSDC</p></div>
+    <div class="tool-card"><img src="https://via.placeholder.com/60" alt="Tool"><p>iMovie</p></div>
+    <div class="tool-card"><img src="https://via.placeholder.com/60" alt="Tool"><p>Shotcut</p></div>
+    <div class="tool-card"><img src="https://via.placeholder.com/60" alt="Tool"><p>Adobe After Effects</p></div>
+    <!-- Keep adding till 50 -->
+  </div>
+
+</body>
+</html>
