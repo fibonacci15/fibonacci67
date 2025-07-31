@@ -16,11 +16,22 @@
       background: linear-gradient(to bottom right, #000000, #1a002b, #300046);
       color: white;
       min-height: 100vh;
-      position: relative;
+      overflow-x: hidden;
     }
 
     body {
-      overflow-x: hidden;
+      animation: slideDown 1s ease-out both;
+    }
+
+    @keyframes slideDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Floating Balls */
@@ -130,7 +141,7 @@
       background: #9f00ff;
     }
 
-    /* Extra Scrollable Content */
+    /* Scrollable Content */
     .content-section {
       max-width: 800px;
       margin: 100px auto;
@@ -169,7 +180,7 @@
   </style>
 </head>
 <body>
-  <!-- Animated background balls -->
+  <!-- Floating Balls Background -->
   <div class="balls-container">
     <div class="ball"></div>
     <div class="ball"></div>
@@ -198,11 +209,12 @@
     <a href="#" class="btn">Get Started for Free</a>
   </main>
 
-  <!-- Scrollable Content Section -->
+  <!-- Scrollable Content -->
   <section class="content-section">
     <h3>Why Choose Fibonacci?</h3>
     <p>
-      Whether you're a beginner or advanced editor, Fibonacci helps you master skills with step-by-step tutorials, hands-on projects, and feedback from real creators. Learn transitions, color grading, sound design, and storytelling for FREE.
+      Whether you're just starting or you're already a creator, Fibonacci helps you take your editing to the next level. 
+      Learn cinematic techniques, smooth transitions, SFX, audio sync, and storytelling – all for free with community support.
     </p>
   </section>
 
@@ -212,3 +224,5 @@
   </footer>
 </body>
 </html>
+
+ 
