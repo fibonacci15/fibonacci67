@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fibonacci | Master Video Editing</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #000000, #1a002b, #300046);
+      color: white;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    /* Floating Balls */
+    .balls-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .ball {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(181, 0, 255, 0.4), rgba(255, 0, 255, 0.1));
+      animation: floatBall 20s linear infinite;
+      top: 100%;
+      left: calc(100% * var(--i, 0.1));
+      filter: blur(3px);
+    }
+
+    .ball:nth-child(1) { --i: 0.1; animation-delay: 0s; }
+    .ball:nth-child(2) { --i: 0.25; animation-delay: 4s; }
+    .ball:nth-child(3) { --i: 0.4; animation-delay: 8s; }
+    .ball:nth-child(4) { --i: 0.6; animation-delay: 2s; }
+    .ball:nth-child(5) { --i: 0.75; animation-delay: 6s; }
+    .ball:nth-child(6) { --i: 0.9; animation-delay: 1s; }
+    .ball:nth-child(7) { --i: 0.15; animation-delay: 5s; }
+
+    @keyframes floatBall {
+      0% {
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.2);
+      }
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #ccc;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #e2b4ff;
+    }
+
+    /* Hero Section */
+    main {
+      text-align: center;
+      padding: 120px 20px 80px;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    main h2 {
+      font-size: 48px;
+      background: linear-gradient(to right, #b076ff, #ff77f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    main p {
+      font-size: 18px;
+      color: #dcdcdc;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #7f00ff;
+      color: white;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #9f00ff;
+    }
+
+    /* Extra Scrollable Content */
+    .content-section {
+      max-width: 800px;
+      margin: 100px auto;
+      text-align: center;
+      z-index: 1;
+      position: relative;
+      padding: 0 20px;
+    }
+
+    .content-section h3 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #f2d1ff;
+    }
+
+    .content-section p {
+      font-size: 17px;
+      color: #cfcfcf;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px 20px;
+      font-size: 14px;
+      color: #aaa;
+      z-index: 1;
+      position: relative;
+    }
+
+    footer span {
+      color: #fff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Animated background balls -->
+  <div class="balls-container">
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+    <div class="ball"></div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <h1 class="logo">Fibonacci</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Courses</a>
+      <a href="#">Community</a>
+      <a href="#">Login</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <h2>Master the Art of Video Editing</h2>
+    <p>Fibonacci is a free platform to learn, practice, and grow as a video editor with tutorials, projects, and a creative community.</p>
+    <a href="#" class="btn">Get Started for Free</a>
+  </main>
+
+  <!-- Scrollable Content Section -->
+  <section class="content-section">
+    <h3>Why Choose Fibonacci?</h3>
+    <p>
+      Whether you're a beginner or advanced editor, Fibonacci helps you master skills with step-by-step tutorials, hands-on projects, and feedback from real creators. Learn transitions, color grading, sound design, and storytelling for FREE.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© <span>Fibonacci</span> 2025. All rights reserved.</p>
+  </footer>
+</body>
+</html>
